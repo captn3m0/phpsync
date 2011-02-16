@@ -1,0 +1,2 @@
+PHP Warning:  stream_get_line() expects at least 2 parameters, 1 given in /home/nemo/projects/phpsync/archives/php_wait_script.php on line 5
+PHP Warning:  stream_get_line() expects at least 2 parameters, 1 given in /home/nemo/projects/phpsync/archives/php_wait_script.php on line 5
