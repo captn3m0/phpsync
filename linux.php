@@ -26,11 +26,12 @@ if(!is_dir($settings['drive']))
   die("Drive not found");
 $playlist_root=dirname($settings['playlist']);
 $playlist=loadPlaylist($settings['playlist']);
-
 foreach($playlist as $files){
-	$filename=realpath($playlist_root."/".trim($files));
-	if(substr($filename,strrpos($filename,'.'))!=='.mp3')
+	//$filename=realpath($playlist_root."/".trim($files));
+	$filename = $files;
+	if(substr($filename,strrpos($filename,'.'))!=='.mp3'){
 		continue;
+	}
 	if($filename):
 		$title_f='';
 		//Read file information from id3tags

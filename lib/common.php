@@ -24,6 +24,20 @@ function loadPlaylist($playlist_file)
 				array_push($songs,$song['src']);
 			return $songs;
 			break;
+		case '.xspf':
+			$file=simplexml_load_file ($playlist_file);
+			if (!$file) {
+				echo "Failed loading XML\n";
+				foreach(libxml_get_errors() as $error) {
+					echo "\t", $error->message;
+				}
+			}
+			$songs=array();
+			foreach($file->trackList->track as $track)
+				array_push($songs,substr(urldecode($track->location),7));
+			//xspf contains file:// encoded urls
+			return $songs;
+			break;
 		case '.plc':
 			echo "plc playlists are still under development.";
 			//Big Endian encoding support in php!
